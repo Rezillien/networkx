@@ -793,6 +793,8 @@ def _dijkstra_multisource(G, sources, weight, pred=None, paths=None,
             break
         for u, e in G_succ[v].items():
             cost = weight(v, u, e)
+            if callable(cost):
+                cost = cost()
             if cost is None:
                 continue
             vu_dist = dist[v] + cost
