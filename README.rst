@@ -19,10 +19,10 @@ of complex networks.
 - **Source:** https://github.com/networkx/networkx
 - **Bug reports:** https://github.com/networkx/networkx/issues
 
-Changes
+Fork changes
 -------
 
-Dijkstra algorithm can use callable weight
+Weighted algorithm can use callable weight
 
 Install
 -------
