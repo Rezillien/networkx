@@ -50,8 +50,6 @@ def from_agraph(A, create_using=None):
     >>> K5 = nx.complete_graph(5)
     >>> A = nx.nx_agraph.to_agraph(K5)
     >>> G = nx.nx_agraph.from_agraph(A)
-    >>> G = nx.nx_agraph.from_agraph(A)
-
 
     Notes
     -----
@@ -145,7 +143,8 @@ def to_agraph(N):
     A.node_attr.update(N.graph.get('node', {}))
     A.edge_attr.update(N.graph.get('edge', {}))
 
-    A.graph_attr.update(N.graph)
+    A.graph_attr.update((k, v) for k, v in N.graph.items()
+                        if k not in ('graph', 'node', 'edge'))
 
     # add nodes
     for n, nodedata in N.nodes(data=True):
